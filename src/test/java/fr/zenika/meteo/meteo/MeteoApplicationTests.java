@@ -1,5 +1,6 @@
 package fr.zenika.meteo.meteo;
 
+import fr.zenika.meteo.meteo.owm.api.OpenWeatherMapAPI;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -10,7 +11,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest
 public class MeteoApplicationTests {
 	@MockBean
-	OpenWeatherMapAPI openWeatherMapAPI;
+	private OpenWeatherMapAPI openWeatherMapAPI;
 
 	@Test
 	public void contextLoads() {

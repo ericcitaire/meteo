@@ -4,6 +4,10 @@ import cucumber.api.DataTable;
 import cucumber.api.java.fr.Alors;
 import cucumber.api.java.fr.Quand;
 import cucumber.api.java.fr.Étantdonnées;
+import fr.zenika.meteo.meteo.owm.api.OpenWeatherMapAPI;
+import fr.zenika.meteo.meteo.owm.api.model.Main;
+import fr.zenika.meteo.meteo.owm.api.model.Weather;
+import fr.zenika.meteo.meteo.service.MeteoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -21,19 +25,19 @@ import static org.mockito.BDDMockito.given;
 public class MeteoSteps {
     @MockBean
     @Autowired
-    OpenWeatherMapAPI openWeatherMapAPI;
+    private OpenWeatherMapAPI openWeatherMapAPI;
 
     @Autowired
-    MeteoService meteoService;
+    private MeteoService meteoService;
 
-    String ville;
+    private String ville;
 
     @Étantdonnées("^les conditions météo suivantes:$")
     public void les_conditions_météo_suivantes(DataTable table) throws Throwable {
         for (List<String> row : table.cells(1)) {
             Weather weather = new Weather();
-            weather.main = new Main();
-            weather.main.temp = Double.parseDouble(row.get(1));
+            weather.setMain(new Main());
+            weather.getMain().setTemp(Double.parseDouble(row.get(1)));
             given(this.openWeatherMapAPI.weather(anyString(), eq(row.get(0)), eq("metric"))).willReturn(weather);
         }
     }
@@ -45,11 +49,11 @@ public class MeteoSteps {
 
     @Alors("^la température affichée est \"([^\"]*)\"$")
     public void la_température_affichée_est(String expectedTemperature) throws Throwable {
-        assertThat(meteoService.meteo(ville).temperature).isEqualTo(expectedTemperature);
+        assertThat(meteoService.meteo(ville).getTemperature()).isEqualTo(expectedTemperature);
     }
 
     @Alors("^le commentaire affiché est \"([^\"]*)\"$")
     public void le_commentaire_affiché_est(String expectedCommentaire) throws Throwable {
-        assertThat(meteoService.meteo(ville).commentaire).isEqualTo(expectedCommentaire);
+        assertThat(meteoService.meteo(ville).getCommentaire()).isEqualTo(expectedCommentaire);
     }
 }

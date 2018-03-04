@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="semantic-ui/semantic.min.css" />
+    <script src="jquery/jquery.min.js"></script>
+    <script src="semantic-ui/semantic.js"></script>
+</head>
+<body>
+    <div>&nbsp;</div>
+    <div class="ui text container">
+        <div class="ui icon massive compact message">
+            <i class="thermometer half icon"></i>
+            <div class="content">
+                <h2 class="header" th:text="${meteo.temperature}">
+                    5°C
+                </h2>
+                <p th:text="${meteo.commentaire}">Il fait froid &agrave; Paris.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

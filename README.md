@@ -1,6 +1,8 @@
 
 # Application Météo
 
+[![Build Status](https://travis-ci.org/ericcitaire/meteo.svg?branch=master)](https://travis-ci.org/ericcitaire/meteo)
+
 ## Spécifications
 
 * L'application doit afficher la température pour une ville donnée.

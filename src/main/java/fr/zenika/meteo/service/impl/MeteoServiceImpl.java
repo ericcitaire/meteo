@@ -24,24 +24,35 @@ public class MeteoServiceImpl implements MeteoService {
 
     public Meteo meteo(String ville) {
         Weather weather = openWeatherMapAPI.weather(openWeatherMapAppId, ville, "metric");
-        double t = weather.getMain().getTemp();
-        String temperature = String.valueOf(Math.round(t)) + "°C";
+        double temperature = weather.getMain().getTemp();
+        String temperatureStr = buildTemperature(temperature);
         if (featureManager.isActive(MeteoFeatures.FEATURE_COMMENTAIRE)) {
-            String commentaire;
-            if (t < -10) {
-                commentaire = "Il fait très froid à " + ville;
-            } else if (t < 10) {
-                commentaire = "Il fait froid à " + ville;
-            } else if (t >= 30) {
-                commentaire = "Il fait très chaud à " + ville;
-            } else if (t >= 20) {
-                commentaire = "Il fait chaud à " + ville;
-            } else {
-                commentaire = "Il fait doux à " + ville;
-            }
-            return new MeteoAvecCommentaire(temperature, commentaire);
+            String commentaireStr = buildCommentaire(temperature, ville);
+            return new MeteoAvecCommentaire(temperatureStr, commentaireStr);
         } else {
-            return new Meteo(temperature);
+            return new Meteo(temperatureStr);
         }
+    }
+
+    private String buildTemperature(double t) {
+        return String.format("%d°C", Math.round(t));
+    }
+
+    private String buildCommentaire(double temperature, String ville) {
+        StringBuilder commentaire = new StringBuilder();
+        if (temperature < -10) {
+            commentaire.append("Il fait très froid");
+        } else if (temperature < 10) {
+            commentaire.append("Il fait froid");
+        } else if (temperature >= 30) {
+            commentaire.append("Il fait très chaud");
+        } else if (temperature >= 20) {
+            commentaire.append("Il fait chaud");
+        } else {
+            commentaire.append("Il fait doux");
+        }
+        commentaire.append(" à ").append(ville);
+
+        return commentaire.toString();
     }
 }

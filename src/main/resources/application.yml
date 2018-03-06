@@ -14,7 +14,7 @@ management:
 togglz:
   features:
     FEATURE_COMMENTAIRE:
-      enabled: true
+      enabled: false
   console:
     enabled: true
     secured: false

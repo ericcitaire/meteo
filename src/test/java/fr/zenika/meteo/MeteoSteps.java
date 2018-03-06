@@ -1,9 +1,12 @@
 package fr.zenika.meteo;
 
 import cucumber.api.DataTable;
+import cucumber.api.java.After;
+import cucumber.api.java.Before;
 import cucumber.api.java.fr.Alors;
 import cucumber.api.java.fr.Quand;
 import cucumber.api.java.fr.Étantdonnées;
+import fr.zenika.meteo.features.MeteoFeatures;
 import fr.zenika.meteo.model.Meteo;
 import fr.zenika.meteo.model.MeteoAvecCommentaire;
 import fr.zenika.meteo.owm.api.OpenWeatherMapAPI;
@@ -14,6 +17,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.ContextConfiguration;
+import org.togglz.core.manager.FeatureManager;
+import org.togglz.core.repository.FeatureState;
 
 import java.util.List;
 
@@ -31,9 +36,22 @@ public class MeteoSteps {
     private OpenWeatherMapAPI openWeatherMapAPI;
 
     @Autowired
+    private FeatureManager featureManager;
+
+    @Autowired
     private MeteoService meteoService;
 
     private Meteo meteo;
+
+    @Before("@FeatureCommentaire")
+    public void beforeFeatureCommentaire() {
+        featureManager.setFeatureState(new FeatureState(MeteoFeatures.FEATURE_COMMENTAIRE, true));
+    }
+
+    @After("@FeatureCommentaire")
+    public void afterFeatureCommentaire() {
+        featureManager.setFeatureState(new FeatureState(MeteoFeatures.FEATURE_COMMENTAIRE, false));
+    }
 
     @Étantdonnées("^les conditions météo suivantes:$")
     public void les_conditions_météo_suivantes(DataTable table) throws Throwable {

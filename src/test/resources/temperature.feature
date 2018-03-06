@@ -38,22 +38,27 @@ Fonctionnalité: Affichage de la température
 
     # Commentaire
 
+    @FeatureCommentaire
     Scénario: Il fait froid
         Lorsque je demande la température pour la ville de "Moscou"
         Alors le commentaire affiché est "Il fait froid à Moscou"
 
+    @FeatureCommentaire
     Scénario: Il fait doux
         Lorsque je demande la température pour la ville de "Tokyo"
         Alors le commentaire affiché est "Il fait doux à Tokyo"
 
+    @FeatureCommentaire
     Scénario: Il fait chaud
         Lorsque je demande la température pour la ville de "Marrakech"
         Alors le commentaire affiché est "Il fait chaud à Marrakech"
 
+    @FeatureCommentaire
     Scénario: Il fait très chaud
         Lorsque je demande la température pour la ville de "Dakar"
         Alors le commentaire affiché est "Il fait très chaud à Dakar"
 
+    @FeatureCommentaire
     Scénario: Il fait très froid
         Lorsque je demande la température pour la ville de "Montréal"
         Alors le commentaire affiché est "Il fait très froid à Montréal"
@@ -65,6 +70,7 @@ Fonctionnalité: Affichage de la température
     # permet de produire un grand nombre de cas de test en
     # très peu de temps.
 
+    @FeatureCommentaire
     Plan du scénario: Affichage de la température et du commentaire
         Lorsque je demande la température pour la ville de "<Ville>"
         Alors la température affichée est "<Température>"

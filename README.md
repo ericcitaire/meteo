@@ -1,7 +1,7 @@
 
 # Application Météo
 
-[![Build Status](https://travis-ci.org/ericcitaire/meteo.svg?branch=master)](https://travis-ci.org/ericcitaire/meteo)
+[![Build Status](https://travis-ci.org/ericcitaire/meteo.svg?branch=master)](https://travis-ci.org/ericcitaire/meteo) [![Coverage Status](https://coveralls.io/repos/github/ericcitaire/meteo/badge.svg?branch=master)](https://coveralls.io/github/ericcitaire/meteo?branch=master)
 
 ## Spécifications
 

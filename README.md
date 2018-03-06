@@ -1,7 +1,9 @@
 
 # Application Météo
 
-[![Build Status](https://travis-ci.org/ericcitaire/meteo.svg?branch=master)](https://travis-ci.org/ericcitaire/meteo) [![codecov](https://codecov.io/gh/ericcitaire/meteo/branch/master/graph/badge.svg)](https://codecov.io/gh/ericcitaire/meteo)
+[![Build Status](https://travis-ci.org/ericcitaire/meteo.svg?branch=master)](https://travis-ci.org/ericcitaire/meteo)
+[![codecov](https://codecov.io/gh/ericcitaire/meteo/branch/master/graph/badge.svg)](https://codecov.io/gh/ericcitaire/meteo)
+[![Maintainability](https://api.codeclimate.com/v1/badges/012d16f13d099b8aa45b/maintainability)](https://codeclimate.com/github/ericcitaire/meteo/maintainability)
 
 ## Spécifications
 

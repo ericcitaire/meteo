@@ -1,2 +1,22 @@
-server.port=8888
-openweathermap.appid=3c09377543cd1bf75e6bff77b1d508c2
+spring:
+  main:
+    banner-mode: 'off'
+thymeleaf:
+  cache: false
+server:
+  port: 8888
+openweathermap:
+  appid: 3c09377543cd1bf75e6bff77b1d508c2
+management:
+  endpoints:
+    web:
+      base-path: /manage
+togglz:
+  features:
+    FEATURE_COMMENTAIRE:
+      enabled: true
+  console:
+    enabled: true
+    secured: false
+    use-management-port: false
+    path: /manage/features

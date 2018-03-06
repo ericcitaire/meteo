@@ -5,6 +5,7 @@ import cucumber.api.java.fr.Alors;
 import cucumber.api.java.fr.Quand;
 import cucumber.api.java.fr.Étantdonnées;
 import fr.zenika.meteo.meteo.model.Meteo;
+import fr.zenika.meteo.meteo.model.MeteoAvecCommentaire;
 import fr.zenika.meteo.meteo.owm.api.OpenWeatherMapAPI;
 import fr.zenika.meteo.meteo.owm.api.model.Main;
 import fr.zenika.meteo.meteo.owm.api.model.Weather;
@@ -17,6 +18,7 @@ import org.springframework.test.context.ContextConfiguration;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.fail;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.BDDMockito.given;
@@ -59,6 +61,11 @@ public class MeteoSteps {
 
     @Alors("^le commentaire affiché est \"([^\"]*)\"$")
     public void le_commentaire_affiché_est(String expectedCommentaire) throws Throwable {
-        assertThat(meteo.getCommentaire()).isEqualTo(expectedCommentaire);
+        if (this.meteo instanceof MeteoAvecCommentaire) {
+            MeteoAvecCommentaire meteoAvecCommentaire = (MeteoAvecCommentaire) meteo;
+            assertThat(meteoAvecCommentaire.getCommentaire()).isEqualTo(expectedCommentaire);
+        } else {
+            fail("Pas de champ commentaire");
+        }
     }
 }

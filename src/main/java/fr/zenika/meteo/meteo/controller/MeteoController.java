@@ -7,9 +7,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
+import org.togglz.core.manager.FeatureManager;
+
+import java.util.HashMap;
+import java.util.Map;
 
 @RestController
 public class MeteoController {
+    @Autowired
+    private FeatureManager featureManager;
+
     @Autowired
     MeteoService meteoService;
 
@@ -20,6 +27,10 @@ public class MeteoController {
 
     @GetMapping(value = "/meteo.html", produces = "text/html")
     public ModelAndView meteoHtml(@RequestParam("ville") String ville) {
-        return new ModelAndView("meteo", "meteo", meteoService.meteo(ville));
+        Map<String, Object> model = new HashMap<>();
+        model.put("featureManager", featureManager);
+        model.put("meteo", meteoService.meteo(ville));
+
+        return new ModelAndView("meteo", model);
     }
 }

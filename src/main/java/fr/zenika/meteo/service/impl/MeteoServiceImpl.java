@@ -1,11 +1,11 @@
-package fr.zenika.meteo.meteo.service.impl;
+package fr.zenika.meteo.service.impl;
 
-import fr.zenika.meteo.meteo.features.MeteoFeatures;
-import fr.zenika.meteo.meteo.model.Meteo;
-import fr.zenika.meteo.meteo.model.MeteoAvecCommentaire;
-import fr.zenika.meteo.meteo.owm.api.OpenWeatherMapAPI;
-import fr.zenika.meteo.meteo.owm.api.model.Weather;
-import fr.zenika.meteo.meteo.service.MeteoService;
+import fr.zenika.meteo.features.MeteoFeatures;
+import fr.zenika.meteo.model.Meteo;
+import fr.zenika.meteo.model.MeteoAvecCommentaire;
+import fr.zenika.meteo.owm.api.OpenWeatherMapAPI;
+import fr.zenika.meteo.owm.api.model.Weather;
+import fr.zenika.meteo.service.MeteoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;

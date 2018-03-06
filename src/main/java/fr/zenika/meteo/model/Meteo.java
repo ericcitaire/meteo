@@ -1,4 +1,4 @@
-package fr.zenika.meteo.meteo.model;
+package fr.zenika.meteo.model;
 
 public class Meteo {
     private final String temperature;

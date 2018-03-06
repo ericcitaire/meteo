@@ -1,7 +1,6 @@
-package fr.zenika.meteo.meteo.features;
+package fr.zenika.meteo.features;
 
 import org.togglz.core.Feature;
-import org.togglz.core.annotation.EnabledByDefault;
 import org.togglz.core.annotation.Label;
 
 public enum MeteoFeatures implements Feature {

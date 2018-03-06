@@ -1,6 +1,6 @@
-package fr.zenika.meteo.meteo;
+package fr.zenika.meteo;
 
-import fr.zenika.meteo.meteo.owm.api.OpenWeatherMapAPI;
+import fr.zenika.meteo.owm.api.OpenWeatherMapAPI;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;

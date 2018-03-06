@@ -1,6 +1,6 @@
-package fr.zenika.meteo.meteo.owm.api;
+package fr.zenika.meteo.owm.api;
 
-import fr.zenika.meteo.meteo.owm.api.model.Weather;
+import fr.zenika.meteo.owm.api.model.Weather;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;

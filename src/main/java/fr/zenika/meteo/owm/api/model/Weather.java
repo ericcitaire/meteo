@@ -1,4 +1,4 @@
-package fr.zenika.meteo.meteo.owm.api.model;
+package fr.zenika.meteo.owm.api.model;
 
 public class Weather {
     public Main getMain() {

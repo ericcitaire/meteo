@@ -1,7 +1,7 @@
-package fr.zenika.meteo.meteo.controller;
+package fr.zenika.meteo.controller;
 
-import fr.zenika.meteo.meteo.model.Meteo;
-import fr.zenika.meteo.meteo.service.MeteoService;
+import fr.zenika.meteo.model.Meteo;
+import fr.zenika.meteo.service.MeteoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;

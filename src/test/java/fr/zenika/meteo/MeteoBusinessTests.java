@@ -1,4 +1,4 @@
-package fr.zenika.meteo.meteo;
+package fr.zenika.meteo;
 
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;

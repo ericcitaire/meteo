@@ -1,15 +1,15 @@
-package fr.zenika.meteo.meteo;
+package fr.zenika.meteo;
 
 import cucumber.api.DataTable;
 import cucumber.api.java.fr.Alors;
 import cucumber.api.java.fr.Quand;
 import cucumber.api.java.fr.Étantdonnées;
-import fr.zenika.meteo.meteo.model.Meteo;
-import fr.zenika.meteo.meteo.model.MeteoAvecCommentaire;
-import fr.zenika.meteo.meteo.owm.api.OpenWeatherMapAPI;
-import fr.zenika.meteo.meteo.owm.api.model.Main;
-import fr.zenika.meteo.meteo.owm.api.model.Weather;
-import fr.zenika.meteo.meteo.service.MeteoService;
+import fr.zenika.meteo.model.Meteo;
+import fr.zenika.meteo.model.MeteoAvecCommentaire;
+import fr.zenika.meteo.owm.api.OpenWeatherMapAPI;
+import fr.zenika.meteo.owm.api.model.Main;
+import fr.zenika.meteo.owm.api.model.Weather;
+import fr.zenika.meteo.service.MeteoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
